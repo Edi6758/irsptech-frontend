@@ -71,28 +71,9 @@ const Home = () => {
     <a.Container>
       <a.Content>
         <Header />
-        <DragDropContext onDragEnd={handleDragEnd}>
-          <Droppable droppableId="lists">
-            {(provided) => (
-              <div ref={provided.innerRef} {...provided.droppableProps}>
-                {list.map((list, index) => (
-                  <Draggable
-                    key={list.value}
-                    draggableId={list.value}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <div ref={provided.innerRef} {...provided.draggableProps}>
-                        <ListUser />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <div>
+          <ListUser /> {/* Renderize o componente ListUser aqui */}
+        </div>
       </a.Content>
       <Footer />
       <Modal
@@ -102,7 +83,6 @@ const Home = () => {
       />
     </a.Container>
   );
-  
 };
 
 export default Home;

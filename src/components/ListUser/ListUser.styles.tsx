@@ -8,10 +8,11 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 0 0px;
+  padding: 5px 0px;
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 1fr 4fr 5fr 1fr 1fr;
   align-items: center;
+  border-bottom: solid 1px #e2e8e9;
 
   p {
     margin-left: 11px;

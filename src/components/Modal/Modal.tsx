@@ -1,3 +1,4 @@
+import React from "react";
 import * as s from "./Modal.styles";
 
 interface ModalProps {
@@ -5,6 +6,7 @@ interface ModalProps {
   onClose: () => void;
   onDelete: () => void;
 }
+
 const Modal = ({ isOpen, onClose, onDelete }: ModalProps) => {
   if (!isOpen) return null;
 
