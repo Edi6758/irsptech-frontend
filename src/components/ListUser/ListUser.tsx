@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Draggable,
-  Droppable,
-  DragDropContext,
-  DropResult,
-} from "react-beautiful-dnd";
+import { Draggable, Droppable, DragDropContext, DropResult } from "react-beautiful-dnd";
 import axios from "axios";
 import * as s from "./ListUser.styles";
 import dragIcon from "../../assets/svg/drag-icon.svg";
@@ -57,13 +52,33 @@ function ListUser({ dragHandleProps }: ListUserProps) {
   };
 
   const handleDragEnd = (result: DropResult) => {
-    console.log("Drag end result:", result);
-
     if (!result.destination) return;
-
-    // Restante do seu código de rearranjo dos usuários
+  
+    const updatedUsers = Array.from(users);
+    const [reorderedUser] = updatedUsers.splice(result.source.index, 1);
+    updatedUsers.splice(result.destination.index, 0, reorderedUser);
+  
+    setUsers(updatedUsers);
+  
+    // Atualizar a ordem dos IDs dos usuários no servidor JSON
+    const updatedUserOrder = updatedUsers.map((user) => user.id);
+    axios.put("http://localhost:3000/userOrder", updatedUserOrder)
+      .then((response) => {
+        console.log("User order updated:", response.data);
+        // Atualizar os usuários após a ordem ser atualizada no servidor
+        axios.get("http://localhost:3000/users")
+          .then((response) => {
+            setUsers(response.data);
+          })
+          .catch((error) => {
+            console.error("Error fetching users:", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error updating user order:", error);
+      });
   };
-
+  
   return (
     <s.Container>
       <DragDropContext onDragEnd={handleDragEnd}>
