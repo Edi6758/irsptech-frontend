@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from "react-beautiful-dnd";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 import * as a from "./Home.styles";
 import ListUser from "../../components/ListUser/ListUser";
+import AddUserButton from "../../components/AddUserButton";
+import { IoMdAdd } from 'react-icons/io';
 
 interface ListType {
   value: string;
@@ -51,15 +47,6 @@ const Home = () => {
     setItemToDelete(null);
   };
 
-  const handleDragEnd = (result: DropResult) => {
-    if (!result.destination) return;
-    const newLists = [...list];
-    const [removed] = newLists.splice(result.source.index, 1);
-    newLists.splice(result.destination.index, 0, removed);
-    setList(newLists);
-    localStorage.setItem("lists", JSON.stringify(newLists));
-  };
-
   useEffect(() => {
     const storedLists = localStorage.getItem("lists");
     if (storedLists) {
@@ -70,12 +57,11 @@ const Home = () => {
   return (
     <a.Container>
       <a.Content>
-        <Header />
         <div>
+        <AddUserButton text="Adicionar" icon={<IoMdAdd />} route="/add-user" />
           <ListUser /> {/* Renderize o componente ListUser aqui */}
         </div>
       </a.Content>
-      <Footer />
       <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}

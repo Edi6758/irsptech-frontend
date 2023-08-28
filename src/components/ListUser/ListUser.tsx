@@ -24,7 +24,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
   useEffect(() => {
     console.log("Fetching users from server...");
     axios
-      .get("http://localhost:3000/users")
+      .get("https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users")
       .then((response) => {
         console.log("Received response:", response);
         setUsers(response.data);
@@ -41,7 +41,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
 
   const deleteUserOnServer = (userId: number) => {
     axios
-      .delete(`http://localhost:3000/users/${userId}`)
+      .delete(`https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users/${userId}`)
       .then((response) => {
         console.log("User deleted:", response.data);
         setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
@@ -62,11 +62,11 @@ function ListUser({ dragHandleProps }: ListUserProps) {
   
     // Atualizar a ordem dos IDs dos usuários no servidor JSON
     const updatedUserOrder = updatedUsers.map((user) => user.id);
-    axios.put("http://localhost:3000/userOrder", updatedUserOrder)
+    axios.put("https://my-json-server.typicode.com/Edi6758/irsptech-frontend/userOrder", updatedUserOrder)
       .then((response) => {
         console.log("User order updated:", response.data);
         // Atualizar os usuários após a ordem ser atualizada no servidor
-        axios.get("http://localhost:3000/users")
+        axios.get("https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users")
           .then((response) => {
             setUsers(response.data);
           })
@@ -96,6 +96,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
                       <s.DragIcon src={dragIcon} alt="Drag icon" />
                       <p>{user.name}</p>
                       <p>{user.email}</p>
+                      <button>editar</button>
                       <s.TrashIcon src={trashIcon} alt="Trash icon" onClick={() => handleDeleteClick(user)} />
                     </s.Content>
                   )}
