@@ -23,6 +23,16 @@ export const Content = styled.div`
     font-weight: 700;
     line-height: normal;
   }
+
+  @media (max-width: 576px) {
+    p {
+      max-width: 110px;
+      overflow-x: hidden;
+    }
+    p::after {
+      content: "...";
+    }
+  }
 `;
 
 export const ContentSubItem = styled.div``;
