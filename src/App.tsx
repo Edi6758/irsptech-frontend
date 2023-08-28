@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import AddUser from './pages/AddUser';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import EditUser from './pages/EditUser';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/add-user" element={<AddUser />} />
+          <Route path="/edit-user/:userId" element={<EditUser />} /> {/* Adicione esta linha */}
         </Routes>
       </Router>
       <Footer />

@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 import * as a from "./Home.styles";
 import ListUser from "../../components/ListUser/ListUser";

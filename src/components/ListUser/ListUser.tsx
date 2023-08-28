@@ -5,6 +5,7 @@ import * as s from "./ListUser.styles";
 import dragIcon from "../../assets/svg/drag-icon.svg";
 import trashIcon from "../../assets/svg/trash-icon.svg";
 import Modal from "../Modal";
+import { Link } from "react-router-dom";
 
 interface User {
   id: number;
@@ -96,7 +97,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
                       <s.DragIcon src={dragIcon} alt="Drag icon" />
                       <p>{user.name}</p>
                       <p>{user.email}</p>
-                      <button>editar</button>
+                      <Link to={`/edit-user/${user.id}`}>Editar</Link> {/* Adicione este link */}
                       <s.TrashIcon src={trashIcon} alt="Trash icon" onClick={() => handleDeleteClick(user)} />
                     </s.Content>
                   )}
