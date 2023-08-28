@@ -4,6 +4,7 @@ import axios from "axios";
 import * as s from "./ListUser.styles";
 import dragIcon from "../../assets/svg/drag-icon.svg";
 import trashIcon from "../../assets/svg/trash-icon.svg";
+import { IoMdCreate } from 'react-icons/io';
 import Modal from "../Modal";
 import { Link } from "react-router-dom";
 
@@ -63,7 +64,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
   
     // Atualizar a ordem dos IDs dos usuários no servidor JSON
     const updatedUserOrder = updatedUsers.map((user) => user.id);
-    axios.put("https://my-json-server.typicode.com/Edi6758/irsptech-frontend/userOrder", updatedUserOrder)
+    axios.put("https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users/order", updatedUserOrder)
       .then((response) => {
         console.log("User order updated:", response.data);
         // Atualizar os usuários após a ordem ser atualizada no servidor
@@ -78,7 +79,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
       .catch((error) => {
         console.error("Error updating user order:", error);
       });
-  };
+  };  
   
   return (
     <s.Container>
@@ -97,7 +98,7 @@ function ListUser({ dragHandleProps }: ListUserProps) {
                       <s.DragIcon src={dragIcon} alt="Drag icon" />
                       <p>{user.name}</p>
                       <p>{user.email}</p>
-                      <Link to={`/edit-user/${user.id}`}>Editar</Link> {/* Adicione este link */}
+                      <Link to={`/edit-user/${user.id}`}><IoMdCreate /></Link> {/* Adicione este link */}
                       <s.TrashIcon src={trashIcon} alt="Trash icon" onClick={() => handleDeleteClick(user)} />
                     </s.Content>
                   )}

@@ -11,6 +11,7 @@ interface AddUserFormProps {
 }
 
 interface UserData {
+  id?: number;
   name: string;
   username: string;
   email: string;
@@ -36,7 +37,7 @@ function AddUserForm({ onAddUser, initialValues }: AddUserFormProps) {
 
   const onSubmit = async (data: UserData) => {
     try {
-      if (initialValues) {
+      if (initialValues && initialValues.id != null) { // Altere esta linha
         // Modo de edição: enviar solicitação PUT para atualizar o usuário existente
         const response = await axios.put(`https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users/${initialValues.id}`, data);
         if (response.status === 200) {

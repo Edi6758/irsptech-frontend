@@ -31,7 +31,28 @@ function AddUser() {
   return (
     <a.Container>
       <a.Content>
-        <AddUserForm onAddUser={handleAddUser} />
+      <AddUserForm
+        onAddUser={handleAddUser} // Sua função de adicionar usuário
+        initialValues={{
+          name: "",
+          username: "",
+          email: "",
+          address: {
+            street: "",
+            suite: "",
+            city: "",
+            zipcode: ""
+          },
+          phone: "",
+          website: "",
+          company: {
+            name: "",
+            catchPhrase: "",
+            bs: ""
+          }
+        }}
+      />
+
       </a.Content>
     </a.Container>
   );
