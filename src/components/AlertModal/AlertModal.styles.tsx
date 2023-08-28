@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Overlay = styled.div`
   position: fixed;
@@ -13,7 +13,7 @@ export const Overlay = styled.div`
 `;
 
 export const Container = styled.div`
-  background-color: #32CD32;
+  background-color: #32cd32;
   padding: 50px 70px;
   color: #fff;
   font-size: 24px;

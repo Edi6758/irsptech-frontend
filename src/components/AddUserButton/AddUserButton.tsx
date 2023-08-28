@@ -1,5 +1,5 @@
-import * as s from "./AddUserButton.styles"
-import { useNavigate } from 'react-router-dom';
+import * as s from "./AddUserButton.styles";
+import { useNavigate } from "react-router-dom";
 
 interface AddUserButtonProps {
   text: string;
@@ -12,13 +12,15 @@ function AddUserButton({ text, icon, route }: AddUserButtonProps) {
 
   const handleClick = () => {
     navigate(route);
-  }
+  };
 
   return (
     <s.Container>
-      <s.AddButton onClick={handleClick}>{text} {icon}</s.AddButton>
+      <s.AddButton onClick={handleClick}>
+        {text} {icon}
+      </s.AddButton>
     </s.Container>
-  )
+  );
 }
 
 export default AddUserButton;

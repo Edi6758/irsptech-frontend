@@ -10,5 +10,4 @@ export const Container = styled.header`
     cursor: pointer;
     max-width: 130px;
   }
-
 `;

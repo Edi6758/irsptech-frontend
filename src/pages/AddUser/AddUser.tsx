@@ -22,37 +22,36 @@ interface UserData {
 }
 
 function AddUser() {
-  const [users, setUsers] = useState<UserData[]>([]); // Defina o tipo do estado
+  const [users, setUsers] = useState<UserData[]>([]);
 
   const handleAddUser = (newUser: UserData) => {
-    setUsers([...users, newUser]); // Adicionar o novo usuário ao estado
+    setUsers([...users, newUser]);
   };
 
   return (
     <a.Container>
       <a.Content>
-      <AddUserForm
-        onAddUser={handleAddUser} // Sua função de adicionar usuário
-        initialValues={{
-          name: "",
-          username: "",
-          email: "",
-          address: {
-            street: "",
-            suite: "",
-            city: "",
-            zipcode: ""
-          },
-          phone: "",
-          website: "",
-          company: {
+        <AddUserForm
+          onAddUser={handleAddUser}
+          initialValues={{
             name: "",
-            catchPhrase: "",
-            bs: ""
-          }
-        }}
-      />
-
+            username: "",
+            email: "",
+            address: {
+              street: "",
+              suite: "",
+              city: "",
+              zipcode: "",
+            },
+            phone: "",
+            website: "",
+            company: {
+              name: "",
+              catchPhrase: "",
+              bs: "",
+            },
+          }}
+        />
       </a.Content>
     </a.Container>
   );

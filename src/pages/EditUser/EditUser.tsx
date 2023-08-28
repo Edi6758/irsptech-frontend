@@ -28,18 +28,19 @@ function EditUser() {
   const [userDetails, setUserDetails] = useState<UserData | null>(null);
 
   useEffect(() => {
-    // Fazer uma chamada de API para buscar os detalhes do usuário pelo ID
     axios
-      .get(`https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users/${userId}`)
+      .get(
+        `https://my-json-server.typicode.com/Edi6758/irsptech-frontend/users/${userId}`,
+      )
       .then((response) => {
-        setUserDetails(response.data as UserData); // Converta a resposta para o tipo UserData
+        setUserDetails(response.data as UserData);
       })
       .catch((error) => {
         console.error("Error fetching user details:", error);
       });
   }, [userId]);
 
-  const handleEditUser = (editedUser: UserData) => {
+  const handleEditUser = () => {
     // Atualizar os dados do usuário no backend usando uma chamada de API
     // e, em seguida, redirecionar para a página inicial ou detalhes do usuário
   };

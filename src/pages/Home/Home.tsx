@@ -3,7 +3,7 @@ import Modal from "../../components/Modal/Modal";
 import * as a from "./Home.styles";
 import ListUser from "../../components/ListUser/ListUser";
 import AddUserButton from "../../components/AddUserButton";
-import { IoMdAdd } from 'react-icons/io';
+import { IoMdAdd } from "react-icons/io";
 
 interface ListType {
   value: string;
@@ -56,8 +56,12 @@ const Home = () => {
     <a.Container>
       <a.Content>
         <div>
-        <AddUserButton text="Adicionar" icon={<IoMdAdd />} route="/add-user" />
-          <ListUser /> {/* Renderize o componente ListUser aqui */}
+          <AddUserButton
+            text="Adicionar"
+            icon={<IoMdAdd />}
+            route="/add-user"
+          />
+          <ListUser />
         </div>
       </a.Content>
       <Modal

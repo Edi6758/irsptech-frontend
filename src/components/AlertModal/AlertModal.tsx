@@ -1,4 +1,4 @@
-import * as s from "./AlertModal.styles"
+import * as s from "./AlertModal.styles";
 
 interface ModalProps {
   isOpen: boolean;

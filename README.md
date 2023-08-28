@@ -18,7 +18,7 @@ To install this project, first make sure you have Node.js installed on your syst
 ```bash
 npm install
 # or
-yarn 
+yarn
 ```
 
 ## Getting Started
@@ -34,8 +34,6 @@ pnpm dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
-
-
 
 ## Code organization and styling
 

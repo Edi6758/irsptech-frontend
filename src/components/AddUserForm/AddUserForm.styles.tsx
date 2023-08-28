@@ -27,7 +27,6 @@ export const FormContainer = styled.form`
   p {
     color: #f00;
   }
-
 `;
 
 export const ContentButton = styled.div`
@@ -37,13 +36,13 @@ export const ContentButton = styled.div`
 `;
 
 export const AddButton = styled.button`
-    background-color: #32CD32;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  background-color: #32cd32;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
